@@ -3,16 +3,18 @@ import styled from "styled-components";
 
 interface UpperAreaProps {
   username: string;
+  name: string;
   bio: string;
   photo: string;
 }
 
-export const UpperArea = ({username,bio,photo,}: UpperAreaProps) => {
+export const UpperArea = ({username,name,bio,photo,}: UpperAreaProps) => {
   return (
     <>
     <Info>
-        <Photo src={photo}/>
+        <Photo src={photo} alt={name}/>
         <SideInfo>
+        <Name>{name}</Name>
           <Username>
             <a href={`https://github.com/${username}`}>@{username}</a>
           </Username>
@@ -22,6 +24,16 @@ export const UpperArea = ({username,bio,photo,}: UpperAreaProps) => {
     </>
   );
 };
+const Name = styled.strong`
+  font-weight: bold;
+  font-size: 1.7rem;
+  line-height: 2.4rem;
+  color: ${(props) => props.theme.colors.textBolded};
+
+  @media (min-width: 768px) {
+    font-size: 2.7rem;
+  }
+`;
 
 const Info = styled.div`
   display: flex;

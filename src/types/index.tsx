@@ -1,5 +1,6 @@
 export interface UserProps {
-    photo: string;
+    photo: string| undefined;
+    name: string
     username: string;
     bio: string;
     repos: string;

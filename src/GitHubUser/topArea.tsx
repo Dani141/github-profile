@@ -39,6 +39,7 @@ export function TopArea({ setUser }: TopAreaProps) {
     const user: UserProps = {
       photo: data.avatar_url,
       username: data.login,
+      name: data.name,
       bio: data.bio,
       repos: data.public_repos,
       followers: data.followers,
@@ -48,14 +49,9 @@ export function TopArea({ setUser }: TopAreaProps) {
     setUser(user);
   }
 
-
-
-
-
-
-
-
-
+  useEffect(()=> {
+    fetchUser(inputUser)
+  },[inputUser])
 
   return (
     <Container>
@@ -75,12 +71,10 @@ export function TopArea({ setUser }: TopAreaProps) {
           {lightMode ? (
             <>
               DARK
-              <img src="/assets/icon-moon.svg" alt="dark mode" />
             </>
           ) : (
             <>
               LIGHT
-              <img src="/assets/icon-sun.svg" alt="light mode" />
             </>
           )}
         </ChangeThemeButton>
@@ -94,7 +88,6 @@ export function TopArea({ setUser }: TopAreaProps) {
         } }
       >
         <InputLabel>
-          <img src="/public/logo192.png" alt="search .." />
         </InputLabel>
 
         <Input

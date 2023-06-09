@@ -1,26 +1,30 @@
 import React from 'react'
 import styled from "styled-components";
-import StartArea from './StartArea.tsx'
+import StartArea from './StartArea.tsx';
 import {UpperArea} from './UpperArea.tsx';
 import { UserDataProps } from '../../types/index.tsx';
+import RepoArea from './RepoArea.tsx';
 
 
 export const Index = ({ user }: UserDataProps) => {
   return (
     <Container>
-      <Photo src={user.pfp}/>
+      <Photo src={user.photo} alt={user.name}/>
 
       <SideArea>
         <UpperArea
           username={user.username}
+          name={user.name}
           bio={user.bio}
-          photo={user.pfp}
+          photo={user.photo}
         />
 
         <StartArea
           repos={user.repos}
           followers={user.followers}
         />
+
+        <RepoArea />
 
       </SideArea>
     </Container>
