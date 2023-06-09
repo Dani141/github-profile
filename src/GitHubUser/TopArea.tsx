@@ -12,8 +12,41 @@ export function TopArea({ setUser }: TopAreaProps) {
   const [inputUser] = useState("User");
 
   function hadleSubmit() {
-    throw new Error('Function not implemented.');
+    if (
+      usernameRef.current?.value.trim() === "" ||
+      usernameRef.current?.value === undefined
+    ) {
+      setEmpty(true);
+      setUser(null);
+      return;
+    }
+    setEmpty(false);
+    fetchUser(usernameRef.current.value);
+   }
+
+   async function fetchUser(username: string) {
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    const data = await response.json();
+
+    if (response.status != 200) {
+      setNotFound(true);
+      setUser(null);
+      return;
+    }
+
+    setNotFound(false);
+    console.log(data)
+
   }
+
+
+
+
+
+
+
+
+
 
   return (
     <Container>
@@ -170,3 +203,7 @@ const Input = styled.input`
   }
 `;
 export default TopArea;
+
+function fetchUser(value: any) {
+  throw new Error('Function not implemented.');
+}
