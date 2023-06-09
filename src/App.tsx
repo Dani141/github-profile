@@ -1,24 +1,20 @@
-import './App.css';
 import styled from "styled-components"
-import { ThemeContextProvider } from './contexts/themeContext';
-import { TopArea } from './GitHubUser/topArea';
-import { useState } from "react";
-import { UserProps } from './types/index';
-import React from 'react';
+import { ThemeContextProvider } from "./contexts/ThemeContext";
+import { TopArea } from "./GitHubUser/TopArea";
+import React, { useState } from "react";
+import { UserProps } from "./types";
 
 function App() {
-
   const [user, setUser] = useState<UserProps | null>(null)
 
   function setUserData (user: UserProps | null): void {
     setUser(user)
   }
-  
+
   return (
     <ThemeContextProvider>
       <Container>
         <TopArea setUser={setUserData} />
-
       </Container>
     </ThemeContextProvider>
   );
@@ -38,4 +34,4 @@ const Container = styled.main`
   }
 `;
 
-export default App;
+export default App

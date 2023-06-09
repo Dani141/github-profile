@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext, useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import { ThemeContext } from '../contexts/themeContext';
+import { ThemeContext } from '../contexts/ThemeContext';
 import { UserProps, TopAreaProps } from '../types';
 
 export const TopArea = ({ setUser }: TopAreaProps) => {
