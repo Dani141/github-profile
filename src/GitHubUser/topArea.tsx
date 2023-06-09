@@ -38,7 +38,6 @@ export function TopArea({ setUser }: TopAreaProps) {
 
     const user: UserProps = {
       photo: data.avatar_url,
-      joinedAt: joinedDate(data.created_at),
       username: data.login,
       bio: data.bio,
       repos: data.public_repos,
@@ -46,8 +45,7 @@ export function TopArea({ setUser }: TopAreaProps) {
     };
     console.log(user)
 
-
-
+    setUser(user);
   }
 
 

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { UserProps } from './types';
 import  ThemeContextProvider from './contexts/ThemeContext.tsx';
 import  TopArea  from './GitHubUser/TopArea.tsx';
+import {Index} from './GitHubUser/UserData/Index.tsx';
 
 function App() {
   const [user, setUser] = useState<UserProps | null>(null)
@@ -15,6 +16,7 @@ function App() {
     <ThemeContextProvider>
       <Container>
         <TopArea setUser={setUserData} />
+        {user && <Index user={user} />}
       </Container>
     </ThemeContextProvider>
   );

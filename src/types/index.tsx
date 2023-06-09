@@ -1,6 +1,5 @@
 export interface UserProps {
     photo: string;
-    joinedAt: string;
     username: string;
     bio: string;
     repos: string;
