@@ -9,7 +9,7 @@ interface ThemeContextProps {
 
 export const ThemeContext = createContext({} as ThemeContextProps);
 
-export const ThemeContextProvider = (props: any) => {
+export function ThemeContextProvider(props: any) {
   const [lightMode, setLightMode] = useState<boolean>(false);
   const darkTheme: object = {
     colors: {
@@ -37,19 +37,20 @@ export const ThemeContextProvider = (props: any) => {
   useEffect(() => {
     localStorage.getItem("theme") === "light" && setLightMode(true);
 
-  }, [])
+  }, []);
 
   useEffect(() => {
-    const mode = lightMode ? "light" : "dark"
+    const mode = lightMode ? "light" : "dark";
 
-    localStorage.setItem("theme", mode)
-  })
+    localStorage.setItem("theme", mode);
+  });
 
   return (
-    <ThemeContext.Provider value={{ changeTheme, lightMode}}>
-        <ThemeProvider theme={lightMode ? lightTheme : darkTheme}>
-            {props.children}
-        </ThemeProvider>
+    <ThemeContext.Provider value={{ changeTheme, lightMode }}>
+      <ThemeProvider theme={lightMode ? lightTheme : darkTheme}>
+        {props.children}
+      </ThemeProvider>
     </ThemeContext.Provider>
   );
-};
+}
+export default ThemeContextProvider;

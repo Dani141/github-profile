@@ -1,8 +1,8 @@
-import styled from "styled-components"
-import { ThemeContextProvider } from "./contexts/ThemeContext";
-import { TopArea } from "./GitHubUser/TopArea";
-import React, { useState } from "react";
-import { UserProps } from "./types";
+import styled from 'styled-components'
+import React, { useState } from 'react';
+import { UserProps } from './types';
+import  ThemeContextProvider from './contexts/ThemeContext.tsx';
+import  TopArea  from './GitHubUser/TopArea.tsx';
 
 function App() {
   const [user, setUser] = useState<UserProps | null>(null)
