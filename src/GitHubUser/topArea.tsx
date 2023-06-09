@@ -35,7 +35,18 @@ export function TopArea({ setUser }: TopAreaProps) {
     }
 
     setNotFound(false);
-    console.log(data)
+
+    const user: UserProps = {
+      photo: data.avatar_url,
+      joinedAt: joinedDate(data.created_at),
+      username: data.login,
+      bio: data.bio,
+      repos: data.public_repos,
+      followers: data.followers,
+    };
+    console.log(user)
+
+
 
   }
 
@@ -207,3 +218,7 @@ export default TopArea;
 function fetchUser(value: any) {
   throw new Error('Function not implemented.');
 }
+function joinedDate(created_at: any): string {
+  throw new Error('Function not implemented.');
+}
+
