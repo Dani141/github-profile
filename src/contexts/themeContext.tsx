@@ -2,10 +2,15 @@ import React from "react"
 import { createContext, useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
 
-export const Theme = createContext({})
+interface ThemeContextProps {
+  changeTheme: () => void;
+  lightMode: boolean;
+}
 
-export const ThemeContextProvider = props => {
-  const [lightMode, setLightMode] = useState(false)
+export const ThemeContext = createContext({} as ThemeContextProps);
+
+export const ThemeContextProvider = (props: any) => {
+  const [lightMode, setLightMode] = useState<boolean>(false);
   const darkTheme = {
     colors: {
       background: "#141D2F",
@@ -40,10 +45,11 @@ export const ThemeContextProvider = props => {
   })
 
   return (
-    <Theme.Provider value={{ changeTheme, lightMode }}>
-      <ThemeProvider theme={lightMode ? lightTheme : darkTheme}>
-        {props.children}
-      </ThemeProvider>
-    </Theme.Provider>
-  )
-}
+    <ThemeContext.Provider value={{ changeTheme, lightMode}}>
+        <ThemeProvider theme={lightMode ? lightTheme : darkTheme}>
+            {props.children}
+        </ThemeProvider>
+    </ThemeContext.Provider>
+  );
+};
+

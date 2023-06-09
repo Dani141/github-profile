@@ -1,13 +1,24 @@
 import './App.css';
 import styled from "styled-components"
 import { ThemeContextProvider } from './contexts/themeContext';
+import { TopArea } from './GitHubUser/topArea';
+import { useState } from "react";
+import { UserProps } from './types/index';
+import React from 'react';
 
 function App() {
 
+  const [user, setUser] = useState<UserProps | null>(null)
+
+  function setUserData (user: UserProps | null): void {
+    setUser(user)
+  }
+  
   return (
     <ThemeContextProvider>
       <Container>
-        
+        <TopArea setUser={setUserData} />
+
       </Container>
     </ThemeContextProvider>
   );
