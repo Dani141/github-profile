@@ -18,7 +18,7 @@ export default function RepoArea({ nameRepo, descriptionRepo }: RepoAreaPropos) 
           {nameRepo.map((name, index) => (
             <tr key={index}>
               <td id='name'>{name}</td>
-              <td>{descriptionRepo[index]}</td>
+              <td id='description'>{descriptionRepo[index]}</td>
             </tr>
           ))}
         </tbody>
@@ -60,6 +60,7 @@ const Data = styled.table`
   #name{
     font-weight: bold;
   }
+
   tbody {
     font-size: 1.2rem;
     line-height: 1.5rem;

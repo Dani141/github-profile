@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }from 'react'
 import styled from "styled-components";
 import {StartArea} from './StartArea.tsx';
 import {UpperArea} from './UpperArea.tsx';
@@ -7,6 +7,12 @@ import RepoArea from './RepoArea.tsx';
 
 
 export const Index = ({ user }: UserDataProps) => {
+  const [showRepo, setShowRepo] = useState(false);
+
+  const toggleRepo = () => {
+    setShowRepo(!showRepo);
+  }
+  
   return (
     <Container>
       <Photo src={user.photo} alt={user.name}/>
@@ -24,11 +30,14 @@ export const Index = ({ user }: UserDataProps) => {
           followers={user.followers}
         />
 
+        <DeployBtn onClick={toggleRepo}>...
+        </DeployBtn>
+        {showRepo && (
         <RepoArea
           nameRepo= {user.repoName}
           descriptionRepo= {user.repoDescription}
         />
-
+        )}
       </SideArea>
     </Container>
 
@@ -75,3 +84,15 @@ const Photo = styled.img`
 const SideArea = styled.div`
   width: 100%;
 `;
+const DeployBtn= styled.button`
+  margin-top: 1.0rem;
+  margin-left: 45.9rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: transparent;
+  font-size: 5.0rem;
+  border: 1px solid transparent;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.textBolded};
+`;
+
