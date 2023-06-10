@@ -10,12 +10,12 @@ export const StartArea = ({ repos, followers }: StastsAreaProps) => {
   return (
     <Container>
       <Data>
-        <span>Followers</span>
+        <span> Followers&nbsp;</span>
         <strong>{followers}</strong>
       </Data>
 
       <Data>
-        <span>Repos</span>
+        <span>&nbsp;Repos </span>
         <strong>{repos}</strong>
       </Data>
 
@@ -26,24 +26,24 @@ export const StartArea = ({ repos, followers }: StastsAreaProps) => {
 const Container = styled.div`
   border-radius: 1rem;
   list-style: none;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-around;
   background: ${(props) => props.theme.colors.background};
   padding: 1.8rem 1.4rem;
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding: 1.8rem 3.2rem;
   }
 `;
 
 const Data = styled.li`
   display: flex;
+  justify-content:flex-start ;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   @media (min-width: 768px) {
     align-items: flex-start;
@@ -57,6 +57,7 @@ const Data = styled.li`
 
     @media (min-width: 768px) {
       font-size: 1.5rem;
+      justify-content:space-between ;
     }
   }
 
@@ -75,4 +76,3 @@ const Data = styled.li`
   }
 `;
 
-export default StartArea

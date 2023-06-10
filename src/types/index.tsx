@@ -1,3 +1,4 @@
+
 export interface UserProps {
     photo: string| undefined;
     name: string

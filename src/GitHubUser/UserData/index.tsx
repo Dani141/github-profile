@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import StartArea from './StartArea.tsx';
+import {StartArea} from './StartArea.tsx';
 import {UpperArea} from './UpperArea.tsx';
 import { UserDataProps } from '../../types/index.tsx';
 import RepoArea from './RepoArea.tsx';
@@ -24,7 +24,10 @@ export const Index = ({ user }: UserDataProps) => {
           followers={user.followers}
         />
 
-        <RepoArea />
+        <RepoArea repos={{
+          nameRepo: '',
+          descriptionRepo: ''
+        }} />
 
       </SideArea>
     </Container>
@@ -73,5 +76,3 @@ const Photo = styled.img`
 const SideArea = styled.div`
   width: 100%;
 `;
-
-export default Index
