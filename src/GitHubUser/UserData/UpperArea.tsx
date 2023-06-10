@@ -6,9 +6,12 @@ interface UpperAreaProps {
   name: string;
   bio: string;
   photo: string;
+  repoName: [];
+  repoDescription: [];
+
 }
 
-export const UpperArea = ({username,name,bio,photo,}: UpperAreaProps) => {
+export const UpperArea = ({username,name,bio,photo}: UpperAreaProps) => {
   return (
     <>
     <Info>

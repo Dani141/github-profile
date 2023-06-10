@@ -24,10 +24,10 @@ export const Index = ({ user }: UserDataProps) => {
           followers={user.followers}
         />
 
-        <RepoArea repos={{
-          nameRepo: '',
-          descriptionRepo: ''
-        }} />
+        <RepoArea
+          nameRepo= {user.repoName}
+          descriptionRepo= {user.repoDescription}
+        />
 
       </SideArea>
     </Container>
@@ -38,7 +38,6 @@ const Container = styled.section`
   width: 100%;
   padding: 3rem 2.4rem;
   background: ${(props) => props.theme.colors.card};
-
   border-radius: 1.5rem;
   margin-top: 1.6rem;
   max-width: 73.3rem;

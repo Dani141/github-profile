@@ -18,7 +18,6 @@ export const StartArea = ({ repos, followers }: StastsAreaProps) => {
         <span>&nbsp;Repos </span>
         <strong>{repos}</strong>
       </Data>
-
     </Container>
   );
 };
@@ -28,7 +27,6 @@ const Container = styled.div`
   list-style: none;
   align-items: center;
   display: flex;
-  justify-content: space-around;
   background: ${(props) => props.theme.colors.background};
   padding: 1.8rem 1.4rem;
 

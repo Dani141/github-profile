@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "http://dataRepo",
+            "request": "launch",
+            "url": "http://dataRepo"
+        }
+    ]
+}

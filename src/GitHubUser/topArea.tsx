@@ -25,8 +25,7 @@ export function TopArea({ setUser }: TopAreaProps) {
    }
 
    async function fetchUser(username: string) {
-    const gitgit = await fetch(`https://docs.github.com/en/rest/${username}`);
-    console.log(gitgit);
+
     const response = await fetch(`https://api.github.com/users/${username}`);
     const data = await response.json();
 
@@ -38,6 +37,16 @@ export function TopArea({ setUser }: TopAreaProps) {
 
     setNotFound(false);
 
+    const responseRepo = await fetch(`https://api.github.com/users/${username}/repos`) 
+    const dataRepo = await responseRepo.json();
+
+    const repoNames = [];
+    dataRepo.forEach(repo => repoNames.push(repo.name));
+
+    const repoDescriptions = [];
+    dataRepo.forEach(repo => repoDescriptions.push(repo.description));
+
+
     const user: UserProps = {
       photo: data.avatar_url,
       username: data.login,
@@ -45,8 +54,9 @@ export function TopArea({ setUser }: TopAreaProps) {
       bio: data.bio,
       repos: data.public_repos,
       followers: data.followers,
+      repoName: repoNames,
+      repoDescription: repoDescriptions
     };
-    console.log(user)
 
     setUser(user);
   }
@@ -214,10 +224,4 @@ const Input = styled.input`
 `;
 export default TopArea;
 
-function fetchUser(value: any) {
-  throw new Error('Function not implemented.');
-}
-function joinedDate(created_at: any): string {
-  throw new Error('Function not implemented.');
-}
 

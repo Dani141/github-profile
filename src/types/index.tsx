@@ -6,6 +6,8 @@ export interface UserProps {
     bio: string;
     repos: string;
     followers: string;
+    repoName: [];
+    repoDescription: [];
   }
   
   export interface TopAreaProps {
